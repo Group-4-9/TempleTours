@@ -34,6 +34,7 @@ namespace TempleTours.Controllers
             return View();
         }
 
+        // uncomment after inserting the variable into the Form()
         //[HttpPost]
         //public IActionResult Form()
         //{
