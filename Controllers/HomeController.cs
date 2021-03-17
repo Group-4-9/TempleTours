@@ -25,7 +25,7 @@ namespace TempleTours.Controllers
 
         public IActionResult SignUp()
         {
-            return View();
+            return View(new TimeSlotModel { });
         }
 
         [HttpGet]

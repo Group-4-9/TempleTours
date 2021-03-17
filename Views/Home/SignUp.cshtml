@@ -2,38 +2,39 @@
     ViewBag.Title = "Sign Up Page";
 }
 
+@model TempleTours.Models.TimeSlotModel
+
 <div>
     <h1>Sign Up Page</h1>
     <p>Sign up below for slots to take a tour of the temple!</p><br />
-    
-    @*
-        This table will eventually have an @foreach loop. The current data is just dummy data
-    *@
 
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Time</th>
+                <th>Day</th>
                 <th>Availability</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>8:00 AM</td>
-                <td>Available</td>
-                <td><a asp-action="Form"><input type="button" class="btn btn-primary" value="Sign up!" /></a></td>
-            </tr>
-            <tr>
-                <td>9:00 AM</td>
-                <td>Available</td>
-                <td><a asp-action="Form"><input type="button" class="btn btn-primary" value="Sign up!" /></a></td>
-            </tr>
-            <tr>
-                <td>10:00 AM</td>
-                <td>Available</td>
-                <td><a asp-action="Form"><input type="button" class="btn btn-primary" value="Sign up!" /></a></td>
-            </tr>
+            @foreach (var x in Model.Schedule)
+            {
+                <tr>
+                    <td>@x.Time</td>
+                    <td>@x.Day</td>
+
+                    @if (x.Available == true)
+                    {
+                        <td>Available</td>
+                        <td><a asp-action="Form"><input type="button" class="btn btn-primary" value="Sign up!" /></a></td>
+                    }
+                    else
+                    {
+                        <td>Not Available</td>
+                    }
+                </tr>
+               }
         </tbody>
     </table>
 </div>
