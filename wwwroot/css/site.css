@@ -18,6 +18,15 @@ a {
   border-color: #1861ac;
 }
 
+input {
+    margin-left: 30px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
