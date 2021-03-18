@@ -22,7 +22,7 @@ namespace TempleTours.Models
         // TODO: decide whether to enforce formatting on the view or in the model, do that
         public string Phone { get; set; }
 
-        public TimeSlotModel.Slot GroupSlot { get; set; }
-        
+        public TimeslotModel.Timeslot GroupSlot { get; set; }
+
     }
 }
