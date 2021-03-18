@@ -39,7 +39,13 @@ namespace TempleTours.Controllers
         //{
         //    return View();
         //}
+        
 
+        //This is view for the list of current appointments, we still need to pass the appointment objects to the view to display them
+        public IActionResult ViewAppointments()
+        {
+            return View();
+        }
         public IActionResult ViewAppts()
         {
             return View();
