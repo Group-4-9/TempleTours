@@ -34,11 +34,13 @@ namespace TempleTours.Controllers
             return View();
         }
 
-        // uncomment after inserting the variable into the Form()
+        ////uncomment after inserting the variable into the Form()
         //[HttpPost]
-        //public IActionResult Form()
+        //public IActionResult Form(Group formResponse)
         //{
-        //    return View();
+        //    //Debug.WriteLine(formResponse.GroupName);
+
+        //    return View("Submissions");
         //}
 
         public IActionResult ViewAppts()
