@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,11 +11,12 @@ namespace TempleTours.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private TempleTourContext _context { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        // set the private variable
+        public HomeController (TempleTourContext con)
         {
-            _logger = logger;
+            _context = con;
         }
 
         public IActionResult Index()
@@ -25,7 +26,7 @@ namespace TempleTours.Controllers
 
         public IActionResult SignUp()
         {
-            return View(new TimeslotModel { });
+            return View();
         }
 
         [HttpGet]
@@ -34,14 +35,19 @@ namespace TempleTours.Controllers
             return View();
         }
 
-        ////uncomment after inserting the variable into the Form()
-        //[HttpPost]
-        //public IActionResult Form(Group formResponse)
-        //{
-        //    //Debug.WriteLine(formResponse.GroupName);
+        [HttpPost]
+        public IActionResult Form(Group group)
+        {
+            // add the group, update the DB
+            if (ModelState.IsValid)
+            {
+                // update the data
+                _context.Groups.Add(group);
+                _context.SaveChanges();
+            }
 
-        //    return View("Submissions");
-        //}
+            return View();
+        }
 
         public IActionResult ViewAppts()
         {
