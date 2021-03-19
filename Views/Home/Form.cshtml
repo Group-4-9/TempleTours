@@ -2,7 +2,7 @@
     ViewBag.Title = "Form Page";
 }
 
-@model TempleTours.Models.Group
+@model TempleTours.Models.ViewModels.FormViewModel
 
 <div>
     <h1>Sign up here!</h1>
@@ -10,22 +10,21 @@
 
     <form asp-action="Form" method="post">
 
-        @*submit a new form; dummy data now, loop through IRepository later*@
         <div class="table myInput">
-            <label asp-for="GroupSlot">Timeslot</label>
-            <input asp-for="GroupSlot" class="myInput" value="8:00 PM (from Sign Up page)" /><br />
+            <label asp-for="GroupObject.GroupSlot.Time">Timeslot</label>
+            <input asp-for="GroupObject.GroupSlot.Time" class="myInput" value="@Model.Time" readonly /><br />
 
-            <label asp-for="GroupName">Group Name</label>
-            <input asp-for="GroupName" class="myInput" required/><br />
+            <label asp-for="GroupObject.GroupName">Group Name</label>
+            <input asp-for="GroupObject.GroupName" class="myInput" required/><br />
 
-            <label asp-for="Size">Group Size</label>
-            <input asp-for="Size" type="number" min ="1" max="1000" class="myInput" required/><br />
+            <label asp-for="GroupObject.Size">Group Size</label>
+            <input asp-for="GroupObject.Size" type="number" min ="1" max="1000" class="myInput" required/><br />
 
-            <label asp-for="Email">Email</label>
-            <input asp-for="Email" class="myInput" required/><br />
+            <label asp-for="GroupObject.Email">Email</label>
+            <input asp-for="GroupObject.Email" class="myInput" required/><br />
 
-            <label asp-for="Phone">Phone</label>
-            <input asp-for="Phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="myInput" required/><br /><br />
+            <label asp-for="GroupObject.Phone">Phone (Format: ###-###-###)</label>
+            <input asp-for="GroupObject.Phone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="myInput" required/><br /><br />
 
             <button asp-action="Index" type="submit" class="btn btn-primary">Submit</button>
         </div>

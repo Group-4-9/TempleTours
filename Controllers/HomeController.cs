@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using TempleTours.Models;
+using TempleTours.Models.ViewModels;
 
 namespace TempleTours.Controllers
 {
@@ -26,13 +27,16 @@ namespace TempleTours.Controllers
 
         public IActionResult SignUp()
         {
-            return View();
+            return View(new TimeslotModel());
         }
 
         [HttpGet]
-        public IActionResult Form()
+        public IActionResult Form(string time)
         {
-            return View();
+            return View("Form", new FormViewModel 
+            { 
+               Time = time
+            });
         }
 
         [HttpPost]
