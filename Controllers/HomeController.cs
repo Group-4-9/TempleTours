@@ -52,10 +52,11 @@ namespace TempleTours.Controllers
 
             return View();
         }
-
+        //Need to pass the database stuff into the view
+        // _context is where the data of the databse is stored. "Groups" is the name of the field/table of of the databse that has the data we want to display
         public IActionResult ViewAppts()
         {
-            return View();
+            return View(_context.Groups);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -11,5 +11,6 @@ namespace TempleTours.Models
 
         public DbSet<Group> Groups { get; set; }
 
+
     }
 }
