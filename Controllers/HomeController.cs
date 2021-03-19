@@ -32,24 +32,31 @@ namespace TempleTours.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUp(TimeslotModel timeslotModel)
+        public IActionResult SignUp(string time)
         {
-            return View("Form", timeslotModel);
+            ViewBag.Time = time;
+            
+            //_context.Timeslots.Where(p => p.Timeslot.Time == time).FirstOrDefault().Available = false;
+            //_context.SaveChanges();
+
+            return View("Form");
         }
 
         [HttpGet]
-        public IActionResult Form(string time)
+        public IActionResult Form()
         {
-            return View("Form", new FormViewModel 
-            { 
-               Time = time
-            });
+            //return View("Form", new FormViewModel
+            //{
+            //    Time = time
+            //});
+
+            return View("Form");
         }
 
         [HttpPost]
         public IActionResult Form(Group group)
         {
-            Debug.WriteLine(group.GroupName);
+            group.GroupSlot.Time = ViewBag.Time;
 
             // add the group, update the DB
             if (ModelState.IsValid)
@@ -57,6 +64,7 @@ namespace TempleTours.Controllers
                 // update the data
                 _context.Groups.Add(group);
                 _context.SaveChanges();
+
             }
 
             return View();

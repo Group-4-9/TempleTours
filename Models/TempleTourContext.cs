@@ -11,6 +11,7 @@ namespace TempleTours.Models
 
         public DbSet<Group> Groups { get; set; }
 
+        //public DbSet<TimeslotModel> Timeslots { get; set; }
 
     }
 }
