@@ -1,0 +1,22 @@
+﻿@*
+    This is the page were the information from the database will be displayed
+*@
+@model IEnumerable<Group>
+<div>
+    <h2>Appointments</h2>
+</div>
+
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+       @foreach (var x in Model)
+           {
+                <h4>
+                    @x.GroupName
+                </h4>
+                <p>Group Size:@x.Size </p>
+                <p>Email Address:@x.Email </p>
+                <p>Phone Number: @x.Phone</p>
+                <p>Time: @x.GroupSlot</p>
+           }
+    </div>
+</div>
