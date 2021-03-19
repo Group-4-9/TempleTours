@@ -25,9 +25,16 @@ namespace TempleTours.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult SignUp()
         {
             return View(new TimeslotModel());
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(TimeslotModel timeslotModel)
+        {
+            return View("Form", timeslotModel);
         }
 
         [HttpGet]
@@ -42,6 +49,8 @@ namespace TempleTours.Controllers
         [HttpPost]
         public IActionResult Form(Group group)
         {
+            Debug.WriteLine(group.GroupName);
+
             // add the group, update the DB
             if (ModelState.IsValid)
             {
@@ -53,7 +62,8 @@ namespace TempleTours.Controllers
             return View();
         }
         //Need to pass the database stuff into the view
-        // _context is where the data of the databse is stored. "Groups" is the name of the field/table of of the databse that has the data we want to display
+        // _context is where the data of the databse is stored. "Groups" is the name of the field/table
+        // of the databse that has the data we want to display
         public IActionResult ViewAppts()
         {
             return View(_context.Groups);

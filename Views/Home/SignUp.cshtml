@@ -27,7 +27,7 @@
                     @if (x.Available == true)
                     {
                         <td>Available</td>
-                        <td><form asp-action="Form" method="get"><input type="hidden"id="time" name="time" value="@x.Time"/><button type="submit" class="btn btn-primary">Sign Up!</button></form></td>
+                        <td><form asp-action="Form" method="post"><input type="hidden"id="time" name="time" value="@x.Time"/><button type="submit" class="btn btn-primary">Sign Up!</button></form></td>
                     }
                     else
                     {
