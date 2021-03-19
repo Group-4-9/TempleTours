@@ -9,7 +9,7 @@ using TempleTours.Models;
 namespace TempleTours.Migrations
 {
     [DbContext(typeof(TempleTourContext))]
-    [Migration("20210318025740_Start")]
+    [Migration("20210319040848_Start")]
     partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
